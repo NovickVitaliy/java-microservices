@@ -11,11 +11,9 @@ import org.mapstruct.MappingTarget;
 @Mapper(componentModel = "spring")
 public interface PartyMapper {
     @Mapping(target = "id", ignore = true)
-    @Mapping(target = "candidates", ignore = true)
     Party toParty(PartyCreateRequest request);
 
     @Mapping(target = "id", ignore = true)
-    @Mapping(target = "candidates", ignore = true)
     void updatePartyFromRequest(PartyUpdateRequest request, @MappingTarget Party party);
     PartyDto toPartyDto(Party party);
 }

@@ -25,7 +25,7 @@ public class PartyController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PartyDto> getParty(@PathVariable Long id) {
+    public ResponseEntity<PartyDto> getParty(@PathVariable("id") Long id) {
         PartyDto partyDto = partyService.getParty(id);
         return ResponseEntity.ok(partyDto);
     }
@@ -37,13 +37,13 @@ public class PartyController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<PartyDto> updateParty(@PathVariable Long id, @Valid @RequestBody PartyUpdateRequest request) {
+    public ResponseEntity<PartyDto> updateParty(@PathVariable("id") Long id, @Valid @RequestBody PartyUpdateRequest request) {
         PartyDto partyDto = partyService.updateParty(id, request);
         return ResponseEntity.ok(partyDto);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteParty(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteParty(@PathVariable("id") Long id) {
         partyService.deleteParty(id);
         return ResponseEntity.noContent().build();
     }
