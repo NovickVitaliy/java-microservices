@@ -10,6 +10,7 @@
   <modules>
     <module>voters.apio</module>
     <module>party.api</module>
+    <module>candidate.api</module>
   </modules>
 
   <dependencyManagement>

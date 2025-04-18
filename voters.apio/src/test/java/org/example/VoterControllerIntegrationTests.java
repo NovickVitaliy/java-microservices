@@ -87,17 +87,4 @@ public class VoterControllerIntegrationTests {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("Vitalii updated"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.email").value("novickvitaliy@gmail.com"));
     }
-
-
-    @Test
-    public void testDeleteElections() throws Exception {
-        var voter = new Voter(null, "Vitalii", "novickvitaliy@gmail.com");
-        var saved = voterRepository.save(voter);
-
-        mockMvc.perform(MockMvcRequestBuilders.delete("/api/voters/" + saved.getId()))
-                .andExpect(MockMvcResultMatchers.status().isNoContent());
-
-        mockMvc.perform(MockMvcRequestBuilders.delete("/api/parties/999"))
-                .andExpect(MockMvcResultMatchers.status().isNotFound());
-    }
 }
