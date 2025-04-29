@@ -30,7 +30,7 @@ public class CandidateService {
 
     public CandidateDto createCandidate(CandidateCreateRequest request) {
         try {
-            this.restTemplate.getForEntity(STR."\{partyServiceUrl}/\{request.partyId()}",
+            this.restTemplate.getForEntity(STR."http://party-api/api/parties/\{request.partyId()}",
                     PartyDto.class);
         } catch (RestClientException e){
             throw new VotingException("Party was not found");
